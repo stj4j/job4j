@@ -21,7 +21,7 @@ public class ConverterTest {
     }
 
     @Test
-    public void when100ollarsToDRubleThen600() {
+    public void when100DollarsToDRubleThen600() {
         Converter converter = new Converter();
         int result = converter.dollarToRuble(100);
         assertThat(result, is(6000));
