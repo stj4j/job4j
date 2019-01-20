@@ -71,24 +71,25 @@ public class Logic {
         int tableLength = table.length;
 
         // (если есть 2 елемента то это может быть полная линия)
-        // (если линия неполная то и в другом месте она тоже быть не может)
+        // (иначе ее нет смысна проходить)
+        // (если после проверки линия неполная то и в другом месте полную линию игрок построить не может)
 
         for (int i = 0; i < tableLength; i++) {
             // проверяем начало линии по вертикали
-            if (table[i][i] == 1 && table[i][i + 1] == 1) {
+            if (table[0][i] == 1 && table[1][i] == 1) {
                 // проверим всю линию
-                for (int j = i + i; j < tableLength - 1; j++) {
-                    if (table[j][i] != table[i][j + 1]) {
+                for (int j = 2; j < tableLength; j++) {
+                    if (table[j][i] != 1) {
                         return false;
                     }
                 }
                 return true;
             }
             // Проверяем начало линии по горозонтали
-            if (table[i][i] == 1 && table[i + 1][i] == 1) {
+            if (table[i][0] == 1 && table[i][1] == 1) {
                 // проверим весь столбик
-                for (int j = i + i; j < tableLength - 1; j++) {
-                    if (table[i][j] != table[j + 1][i]) {
+                for (int j = 2; j < tableLength; j++) {
+                    if (table[i][j] != 1) {
                         return false;
                     }
                 }
