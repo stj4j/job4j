@@ -12,7 +12,6 @@ public class BubbleSort {
      * @param array for sort.
      * @return sorted array.
      */
-
     public int[] sort(int[] array) {
         int temp;
         for (int j = 0; j < array.length - 1; j++) {
@@ -21,7 +20,6 @@ public class BubbleSort {
                     temp = array[i + 1];
                     array[i + 1] = array[i];
                     array[i] = temp;
-
                 }
             }
         }

@@ -18,9 +18,7 @@ public class ArrayDuplicate {
      */
 
     public String[] remove(String[] array) {
-
         int endPoint = array.length;
-
         for (int i = 0; i < endPoint; i++) {
             for (int j = i + 1; j < endPoint; j++) {
                 if (array[i].equals(array[j])) {
