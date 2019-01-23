@@ -11,6 +11,6 @@ public class EngineerTest {
         Home building = new Home();
         Engineer igor = new Engineer();
         Home result = igor.toBuild(building);
-        assertEquals(result.getType(),"none");
+        assertEquals(result.getType(), "none");
     }
 }

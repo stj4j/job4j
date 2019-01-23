@@ -10,7 +10,7 @@ public class HomeTest {
     public void getType() {
         Home home = new Home();
         String result = home.getType();
-        assertEquals(result,"none");
+        assertEquals(result, "none");
     }
 
     @Test
@@ -18,6 +18,6 @@ public class HomeTest {
         Home home = new Home();
         home.setType("Skyscraper");
         String result = home.getType();
-        assertEquals(result,"Skyscraper");
+        assertEquals(result, "Skyscraper");
     }
 }
