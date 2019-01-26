@@ -1,8 +1,12 @@
 package ru.job4j.tracker;
 
+import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.collection.IsArrayContainingInAnyOrder.arrayContainingInAnyOrder;
 import static org.junit.Assert.*;
 
 public class TrackerTest {
@@ -31,4 +35,20 @@ public class TrackerTest {
         assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
     }
 
+    @Test
+    public void deleteThanChackResultArrayLength() {
+        Item[] result = new Item[2];
+        result[0] = new Item("Vitaly", "description");
+        result[1] = new Item("Ivan", "description");
+        Tracker tracker = new Tracker();
+        tracker.add(new Item("Vitaly", "description"));
+        tracker.add(new Item("Oleg", "description"));
+        tracker.add(new Item("Stas", "description"));
+        tracker.add(new Item("Ivan", "description"));
+        tracker.add(new Item("Olga", "description"));
+        tracker.delete((tracker.findByName("Oleg")[0].getId()));
+        tracker.delete((tracker.findByName("Olga")[0].getId()));
+        tracker.delete((tracker.findByName("Stas")[0].getId()));
+        assertEquals(tracker.findAll().length, result.length);
+    }
 }
