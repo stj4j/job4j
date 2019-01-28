@@ -51,4 +51,19 @@ public class TrackerTest {
         tracker.delete((tracker.findByName("Stas")[0].getId()));
         assertEquals(tracker.findAll().length, result.length);
     }
+
+    @Test
+    public void deleteThanCheckResult() {
+        Tracker tracker = new Tracker();
+        final Item item = tracker.add(new Item("Ivan", "description"));
+        Item[] items = {
+                tracker.add(new Item("Vitaly", "description")),
+                tracker.add(new Item("Oleg", "description")),
+                tracker.add(new Item("Stas", "description")),
+                tracker.add(new Item("Ivan", "description")),
+                tracker.add(new Item("Olga", "description")),
+        };
+        tracker.delete(item.getId());
+        assertThat(tracker.findAll(), is(items));
+    }
 }
