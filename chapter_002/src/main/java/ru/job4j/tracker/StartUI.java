@@ -5,9 +5,6 @@ public class StartUI {
     private static final int ADD = 0;
     private static final int SHOW = 1;
     private static final int EDIT = 2;
-    private static final int EDITID = 20;
-    private static final int EDITNAME = 21;
-    private static final int EDITDESCRIPTION = 22;
     private static final int DELETE = 3;
     private static final int FINDBYID = 4;
     private static final int FINDBYNAME = 5;
