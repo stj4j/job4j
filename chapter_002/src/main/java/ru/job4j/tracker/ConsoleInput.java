@@ -26,8 +26,15 @@ public class ConsoleInput {
     public void showItem(Item item) {
         System.out.println("--------------------");
         System.out.println("ID from record is : " + item.getId());
+        System.out.println("Name is: " + item.getName());
         System.out.println("Description from record is : " + item.getDescription());
         System.out.println("--------------------");
+    }
+
+    public void showItems(Item[] items) {
+        for (int j = 0; j < items.length; j++) {
+            showItem(items[j]);
+        }
     }
 
 }
