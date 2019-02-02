@@ -27,36 +27,41 @@ public class StartUI {
                     this.createItem();
                     break;
                 case SHOW:
-                    Item[] rezult = tracker.findAll();
-                    this.input.showItems(rezult);
+                    this.showAllItems();
                     break;
                 case EDIT:
-                    this.input.showItems(tracker.findAll());
-                    String editID = input.askUser("Input ID for editing: ");
-                    Item newItem = new Item();
-                    newItem.setId(editID);
-                    newItem.setName(this.input.askUser("Input Name : "));
-                    newItem.setDescription(this.input.askUser("Input description"));
-                    tracker.replace(editID, newItem);
+                    this.editItem();
                     break;
                 case DELETE:
-                    String delId = input.askUser("Input ID : ");
-                    tracker.delete(delId);
+                    this.deleteItem();
                     break;
                 case FINDBYID:
-                    String id = input.askUser("Input ID : ");
-                    this.input.showItem(this.tracker.findById(id));
+                    this.findById();
                     break;
                 case FINDBYNAME:
-                    String findName = input.askUser("Input Name: ");
-                    this.input.showItems(tracker.findByName(findName));
+                    this.findByName();
                     break;
                 case EXIT:
                     exit = true;
                 default:
-                    this.input.askUser("Please select next operation : ");
+                    doDefault();
             }
         }
+    }
+
+    public void showAllItems() {
+        Item[] rezult = tracker.findAll();
+        this.input.showItems(rezult);
+    }
+
+    public void editItem() {
+        this.input.showItems(tracker.findAll());
+        String editID = input.askUser("Input ID for editing: ");
+        Item newItem = new Item();
+        newItem.setId(editID);
+        newItem.setName(this.input.askUser("Input Name : "));
+        newItem.setDescription(this.input.askUser("Input description"));
+        tracker.replace(editID, newItem);
     }
 
     public void createItem() {
@@ -68,9 +73,27 @@ public class StartUI {
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
 
+    public void deleteItem() {
+        String delId = input.askUser("Input ID : ");
+        tracker.delete(delId);
+    }
+
+    public void findByName() {
+        String findName = input.askUser("Input Name: ");
+        this.input.showItems(tracker.findByName(findName));
+    }
+
+    public void findById() {
+        String id = input.askUser("Input ID : ");
+        this.input.showItem(this.tracker.findById(id));
+    }
+
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
     }
 
+    public void doDefault() {
+        this.input.askUser("Please select next operation : ");
+    }
 
 }
