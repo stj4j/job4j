@@ -11,6 +11,7 @@ public class StartUI {
     private static final int EXIT = 6;
     private final ConsoleInput input;
     private final Tracker tracker;
+    private boolean exit = false;
 
     public StartUI(ConsoleInput input, Tracker tracker) {
         this.input = input;
@@ -18,7 +19,6 @@ public class StartUI {
     }
 
     public void init() {
-        boolean exit = false;
         while (!exit) {
             this.input.printMenu();
             String answer = this.input.askUser("Please select operation : ");
@@ -42,8 +42,7 @@ public class StartUI {
                     this.findByName();
                     break;
                 case EXIT:
-                    exit = true;
-                    return;
+                    exit();
                 default:
                     doDefault();
             }
@@ -96,4 +95,9 @@ public class StartUI {
     public void doDefault() {
         this.input.askUser("Please select next operation : ");
     }
+
+    private void exit() {
+        exit = true;
+    }
+
 }
