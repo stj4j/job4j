@@ -37,4 +37,16 @@ public class ConsoleInput {
         }
     }
 
+    public void message(String message) {
+        System.out.println(message);
+    }
+
+    public void message(boolean in) {
+        if (in) {
+            System.out.println("Operation done.");
+        } else {
+            System.out.println("Not found");
+        }
+    }
+
 }

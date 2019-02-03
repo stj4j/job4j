@@ -43,6 +43,7 @@ public class StartUI {
                     break;
                 case EXIT:
                     exit = true;
+                    return;
                 default:
                     doDefault();
             }
@@ -61,7 +62,7 @@ public class StartUI {
         newItem.setId(editID);
         newItem.setName(this.input.askUser("Input Name : "));
         newItem.setDescription(this.input.askUser("Input description"));
-        tracker.replace(editID, newItem);
+        this.input.message((tracker.replace(editID, newItem)));
     }
 
     public void createItem() {
@@ -75,7 +76,7 @@ public class StartUI {
 
     public void deleteItem() {
         String delId = input.askUser("Input ID : ");
-        tracker.delete(delId);
+        this.input.message(tracker.delete(delId));
     }
 
     public void findByName() {
@@ -95,5 +96,4 @@ public class StartUI {
     public void doDefault() {
         this.input.askUser("Please select next operation : ");
     }
-
 }
