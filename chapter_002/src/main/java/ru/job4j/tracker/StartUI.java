@@ -43,6 +43,7 @@ public class StartUI {
                     break;
                 case EXIT:
                     exit();
+                    break;
                 default:
                     doDefault();
             }
@@ -65,12 +66,12 @@ public class StartUI {
     }
 
     public void createItem() {
-        System.out.println("------------ Добавление новой заявки --------------");
+        input.message("------------ Добавление новой заявки --------------");
         String name = this.input.askUser("Введите имя заявки :");
         String desc = this.input.askUser("Введите описание заявки :");
         Item item = new Item(name, desc);
         this.tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        input.message("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
 
     public void deleteItem() {
