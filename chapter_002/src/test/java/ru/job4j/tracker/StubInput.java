@@ -37,15 +37,12 @@ public class StubInput extends ConsoleInput {
 
     @Override
     public void printMenu() {
-        return;
     }
 
     @Override
     public void message(String string) {
-        return;
     }
     @Override
     public void showItems(Item[] items) {
-        return;
     }
 }

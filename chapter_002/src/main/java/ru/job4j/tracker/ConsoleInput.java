@@ -32,8 +32,8 @@ public class ConsoleInput {
     }
 
     public void showItems(Item[] items) {
-        for (int j = 0; j < items.length; j++) {
-            showItem(items[j]);
+        for (Item item : items) {
+            showItem( item );
         }
     }
 

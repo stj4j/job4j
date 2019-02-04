@@ -1,8 +1,6 @@
 package ru.job4j.tracker;
 
 
-import java.text.SimpleDateFormat;
-
 public class Item {
     private String id;
     private String name;

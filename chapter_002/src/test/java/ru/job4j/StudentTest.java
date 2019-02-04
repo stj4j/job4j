@@ -16,8 +16,8 @@ public class StudentTest {
     @Test
     public void setName() {
         Student student = new Student();
-        student.setName("Nikolay");
+        student.setName("Nik");
         String result = student.getName();
-        assertEquals(result, "Nikolay");
+        assertEquals(result, "Nik");
     }
 }

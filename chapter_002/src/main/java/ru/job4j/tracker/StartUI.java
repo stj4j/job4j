@@ -51,8 +51,8 @@ public class StartUI {
     }
 
     public void showAllItems() {
-        Item[] rezult = tracker.findAll();
-        this.input.showItems(rezult);
+        Item[] result = tracker.findAll();
+        this.input.showItems(result);
     }
 
     public void editItem() {
