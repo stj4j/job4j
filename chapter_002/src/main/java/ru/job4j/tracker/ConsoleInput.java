@@ -33,7 +33,7 @@ public class ConsoleInput {
 
     public void showItems(Item[] items) {
         for (Item item : items) {
-            showItem( item );
+            showItem(item);
         }
     }
 
