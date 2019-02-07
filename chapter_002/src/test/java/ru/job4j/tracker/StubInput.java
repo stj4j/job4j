@@ -45,7 +45,7 @@ public class StubInput extends ConsoleInput {
     @Override
     public void message(boolean bool) {
     }
-    @Override
-    public void showItems(Item[] items) {
-    }
+//    @Override
+//    public void showItems(Item[] items) {
+//    }
 }

@@ -86,6 +86,4 @@ public class StartUITest {
         new StartUI(input, tracker).init();
         Assert.assertThat(tracker.findByName(items[0].getName()), is(items));
     }
-
-
 }
