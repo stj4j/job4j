@@ -69,10 +69,10 @@ public class StartUIScreenTest {
                 new String(out.toByteArray()),
                 is(
                         new StringBuilder()
-                                .append("--------------------\n")
-                                .append("ID from record is : " + result[0].getId() + "\n")
-                                .append("Name is: " + result[0].getName() + "\n")
-                                .append("Description from record is : " + result[0].getDescription() + "\n")
+                                .append("--------------------" + System.lineSeparator())
+                                .append("ID from record is : " + result[0].getId() + System.lineSeparator())
+                                .append("Name is: " + result[0].getName() + System.lineSeparator())
+                                .append("Description from record is : " + result[0].getDescription() + System.lineSeparator())
                                 .append("--------------------")
                                 .append(System.lineSeparator())
                                 .toString()
