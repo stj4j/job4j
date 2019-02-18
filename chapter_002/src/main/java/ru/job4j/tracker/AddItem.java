@@ -7,7 +7,7 @@ public class AddItem implements UserAction {
     }
 
     @Override
-    public void execute(ConsoleInput input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Adding new item --------------");
         String name = input.askUser("Please, provide item name:");
         String desc = input.askUser("Please, provide item description:");

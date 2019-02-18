@@ -33,8 +33,11 @@ public class StartUIScreenTest {
         Item[] result = {
                 tracker.add(new Item("Ivan", "desc")),
                 tracker.add(new Item("Nik", "desc"))};
-        ValidateInput input = new StubInput(new String[] {"1", "y"});
-        new StartUI(input, tracker).init();
+        ValidateInput input = new ValidateInput(new StubInput(new String[] {"1", "y"}));
+        MenuTracker menu = new MenuTracker(input, tracker);
+        menu.fillActions();
+        menu.show();
+        menu.select(Integer.valueOf(input.askUser("select:")));
         assertThat(
                 new String(out.toByteArray()),
                 is(
@@ -70,8 +73,11 @@ public class StartUIScreenTest {
         Item[] result = {
                 tracker.add(new Item("Ivan", "desc")),
                 tracker.add(new Item("Nik", "desc"))};
-        ValidateInput input = new StubInput(new String[]{"4", result[0].getId(), "y"});
-        new StartUI(input, tracker).init();
+        ValidateInput input = new ValidateInput(new StubInput(new String[]{"4", result[0].getId(), "y"}));
+        MenuTracker menu = new MenuTracker(input, tracker);
+        menu.fillActions();
+        menu.show();
+        menu.select(Integer.valueOf(input.askUser("select:")));
         assertThat(
                 new String(out.toByteArray()),
                 is(

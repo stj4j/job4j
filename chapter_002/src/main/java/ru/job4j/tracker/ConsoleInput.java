@@ -1,8 +1,10 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
 
-public class ConsoleInput {
+import java.util.Scanner;
+import java.util.List;
+
+public class ConsoleInput implements Input {
 
     public String askUser(String message) {
         System.out.println(message);

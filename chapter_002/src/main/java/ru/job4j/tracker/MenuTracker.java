@@ -4,11 +4,11 @@ import java.util.*;
 
 public class MenuTracker {
 
-    private ConsoleInput input;
+    private Input input;
     private Tracker tracker;
     private List<UserAction> actions = new ArrayList<>();
 
-    public MenuTracker(ConsoleInput input, Tracker tracker) {
+    public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }

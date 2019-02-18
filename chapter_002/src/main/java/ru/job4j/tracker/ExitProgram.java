@@ -7,7 +7,7 @@ public class ExitProgram implements UserAction {
     }
 
     @Override
-    public void execute(ConsoleInput input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         return;
     }
 

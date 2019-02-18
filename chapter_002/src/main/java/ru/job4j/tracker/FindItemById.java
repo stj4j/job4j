@@ -7,7 +7,7 @@ public class FindItemById implements UserAction {
     }
 
     @Override
-    public void execute(ConsoleInput input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         String id = input.askUser("Input ID : ");
         input.showItem(tracker.findById(id));
     }

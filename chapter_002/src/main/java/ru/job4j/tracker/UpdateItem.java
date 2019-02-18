@@ -7,7 +7,7 @@ public class UpdateItem implements UserAction {
     }
 
     @Override
-    public void execute(ConsoleInput input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         input.showItems(tracker.findAll());
         String editID = input.askUser("Input ID for editing: ");
         Item newItem = new Item();

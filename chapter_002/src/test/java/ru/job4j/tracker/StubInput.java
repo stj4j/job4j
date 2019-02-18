@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class StubInput extends ValidateInput {
+public class StubInput extends ConsoleInput {
     /**
      * Это поле содержит последовательность ответов пользователя.
      * Например. Если пользователь
@@ -30,22 +30,13 @@ public class StubInput extends ValidateInput {
      * Для этого при каждом вызове метода ask мы увеличиваем счетчик и
      * при следующем вызове он вернет нам новое значение.
      */
-    @Override
+
     public String askUser(String question) {
         return this.value[this.position++];
     }
-
-    @Override
-    public void printMenu() {
+    public void message(String message) {
+        System.out.println(message);
     }
 
-    @Override
-    public void message(String string) {
     }
-    @Override
-    public void message(boolean bool) {
-    }
-//    @Override
-//    public void showItems(Item[] items) {
-//    }
-}
+

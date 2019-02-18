@@ -7,7 +7,7 @@ public class ShowAllItems implements UserAction {
     }
 
     @Override
-    public void execute(ConsoleInput input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         Item[] result = tracker.findAll();
         input.showItems(result);
     }

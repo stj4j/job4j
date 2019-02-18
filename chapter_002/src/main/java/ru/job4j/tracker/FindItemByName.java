@@ -7,7 +7,7 @@ public class FindItemByName implements UserAction {
     }
 
     @Override
-    public void execute(ConsoleInput input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         String findName = input.askUser("Input Name: ");
         input.showItems(tracker.findByName(findName));
     }

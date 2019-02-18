@@ -6,26 +6,56 @@ import java.util.Scanner;
 /**
  * Created by Sergii.
  */
-public class ValidateInput extends ConsoleInput {
+public class ValidateInput implements Input {
+    private final Input input;
 
-    public String askUser(String message, List<Integer> range) {
-        int input;
-        boolean parseSuccess;
+    public ValidateInput(final Input input) {
+        this.input = input;
+    }
+
+    @Override
+    public String askUser(String question) {
+        return this.input.askUser(question);
+    }
+
+    public String askUser(String askMessage, List<Integer> range) {
+        int input = -1;
+        boolean invalid = true;
         int menuSize = range.size() - 1;
-        System.out.println(message);
-        Scanner scanner = new Scanner(System.in);
         do {
             try {
-                input = Integer.parseInt(scanner.next());
-                if (input >=0 && input < range.size()) return String.valueOf(input);
-                message("Please input number from 0 to " + menuSize + ".");
-                parseSuccess = false;
-            } catch (NumberFormatException e) {
-                message("Please input number from 0 to " + menuSize + ".");
-                parseSuccess = false;
+                input = Integer.valueOf(this.input.askUser(askMessage));
+                for (int element : range) {
+                  if (input == element) {
+                      return  String.valueOf(input);
+                  }
+                }
+                System.out.println("Please select key from menu.");
+                invalid = true;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Please enter validate data again.");
             }
-        } while (parseSuccess == false );
-        System.out.println("You out of valid range. Try one more time.");
-        return askUser(message, range);
+        } while (invalid);
+        return  String.valueOf(input);
+    }
+
+    @Override
+    public void message(String message) {
+        this.input.message(message);
+    }
+
+    @Override
+    public void showItem(Item item) {
+        this.input.showItem(item);
+    }
+
+    @Override
+    public void showItems(Item[] items) {
+        this.input.showItems(items);
+    }
+
+    @Override
+    public void message(boolean in) {
+        this.input.message(in);
     }
 }

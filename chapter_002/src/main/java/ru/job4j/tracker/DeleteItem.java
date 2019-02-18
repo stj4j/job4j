@@ -7,7 +7,7 @@ public class DeleteItem implements UserAction {
     }
 
     @Override
-    public void execute(ConsoleInput input, Tracker tracker) {
+    public void execute(Input input, Tracker tracker) {
         String delId = input.askUser("Input ID : ");
         input.message(tracker.delete(delId));
     }
