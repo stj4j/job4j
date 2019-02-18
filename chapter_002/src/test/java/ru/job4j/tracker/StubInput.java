@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-public class StubInput extends ConsoleInput {
+public class StubInput extends ValidateInput {
     /**
      * Это поле содержит последовательность ответов пользователя.
      * Например. Если пользователь

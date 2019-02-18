@@ -33,7 +33,7 @@ public class StartUIScreenTest {
         Item[] result = {
                 tracker.add(new Item("Ivan", "desc")),
                 tracker.add(new Item("Nik", "desc"))};
-        ConsoleInput input = new StubInput(new String[] {"1", "y"});
+        ValidateInput input = new StubInput(new String[] {"1", "y"});
         new StartUI(input, tracker).init();
         assertThat(
                 new String(out.toByteArray()),
@@ -70,7 +70,7 @@ public class StartUIScreenTest {
         Item[] result = {
                 tracker.add(new Item("Ivan", "desc")),
                 tracker.add(new Item("Nik", "desc"))};
-        ConsoleInput input = new StubInput(new String[]{"4", result[0].getId(), "y"});
+        ValidateInput input = new StubInput(new String[]{"4", result[0].getId(), "y"});
         new StartUI(input, tracker).init();
         assertThat(
                 new String(out.toByteArray()),
