@@ -12,6 +12,8 @@ public class StartUI {
     private static final int FINDBYID = 4;
     private static final int FINDBYNAME = 5;
     private static final int EXIT = 6;
+    private StartUI ui;
+    private boolean menuLoop = true;
     private final ValidateInput input;
     private final Tracker tracker;
     private List<Integer> range = new ArrayList<>();
@@ -25,14 +27,14 @@ public class StartUI {
 
       try {
             MenuTracker menu = new MenuTracker(this.input, this.tracker);
-            menu.fillActions();
+            menu.fillActions(this);
             for (int i = 0; i < menu.getActionsLentgh(); i++) {
               range.add(i);
             }
             do {
                 menu.show();
                 menu.select(Integer.valueOf(input.askUser("select:", range)));
-            } while (!"y".equals(this.input.askUser("Exit?(y): ")));
+            } while (this.menuLoop);
        } catch (Throwable e) {
             throw new MenuOutException("Error - ", e);
        }
@@ -46,4 +48,8 @@ public class StartUI {
         this.input.askUser("Please select next operation : ");
     }
 
+
+    public void setMenuLoop(boolean menuLoop) {
+        this.menuLoop = menuLoop;
+    }
 }

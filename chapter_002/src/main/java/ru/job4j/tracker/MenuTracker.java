@@ -17,14 +17,14 @@ public class MenuTracker {
         return this.actions.size();
     }
 
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions.add(new AddItem());
         this.actions.add(new ShowAllItems());
         this.actions.add(new UpdateItem());
         this.actions.add(new DeleteItem());
         this.actions.add(new FindItemById());
         this.actions.add(new FindItemByName());
-        this.actions.add(new ExitProgram());
+        this.actions.add(new ExitProgram(ui));
     }
 
     public void select(int key) {

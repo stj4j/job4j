@@ -20,20 +20,18 @@ public class ValidateInput implements Input {
 
     public String askUser(String askMessage, List<Integer> range) {
         int input = -1;
-        boolean invalid = true;
-        int menuSize = range.size() - 1;
+        boolean invalid = false;
         do {
+            invalid = false;
             try {
                 input = Integer.valueOf(this.input.askUser(askMessage));
-                for (int element : range) {
-                  if (input == element) {
-                      return  String.valueOf(input);
-                  }
+                if (!this.checkValue(range, input)) {
+                    System.out.println("Please select key from menu.");
+                    invalid = true;
                 }
-                System.out.println("Please select key from menu.");
-                invalid = true;
             } catch (NumberFormatException nfe) {
                 System.out.println("Please enter validate data again.");
+                invalid = true;
             }
         } while (invalid);
         return  String.valueOf(input);
@@ -57,5 +55,14 @@ public class ValidateInput implements Input {
     @Override
     public void message(boolean in) {
         this.input.message(in);
+    }
+
+    private boolean checkValue(List<Integer> range, int input) {
+        for (int element : range) {
+            if (input == element) {
+                return true;
+            }
+        }
+    return false;
     }
 }

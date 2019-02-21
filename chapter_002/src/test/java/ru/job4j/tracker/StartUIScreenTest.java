@@ -35,7 +35,8 @@ public class StartUIScreenTest {
                 tracker.add(new Item("Nik", "desc"))};
         ValidateInput input = new ValidateInput(new StubInput(new String[] {"1", "y"}));
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.show();
         menu.select(Integer.valueOf(input.askUser("select:")));
         assertThat(
@@ -75,7 +76,8 @@ public class StartUIScreenTest {
                 tracker.add(new Item("Nik", "desc"))};
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"4", result[0].getId(), "y"}));
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.show();
         menu.select(Integer.valueOf(input.askUser("select:")));
         assertThat(

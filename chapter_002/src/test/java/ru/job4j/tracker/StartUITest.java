@@ -13,7 +13,8 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"0", "test name", "desc", "y"}));   //создаём StubInput с последовательностью действий
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.select(Integer.valueOf(input.askUser("select:")));
         Assert.assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
@@ -24,7 +25,8 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"1", "y"}));
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.select(Integer.valueOf(input.askUser("select:")));
         Item[] items = {
                 tracker.add(new Item("Name 1", "desc")),
@@ -45,7 +47,8 @@ public class StartUITest {
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"2", item.getId(), "test replace", "description", "y"}));
         // создаём StartUI и вызываем метод init()
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.select(Integer.valueOf(input.askUser("select:")));
         // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
         Assert.assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
@@ -57,7 +60,8 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"1", "y"}));
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.select(Integer.valueOf(input.askUser("select:")));
         Item[] items = {
                 tracker.add(new Item("Name 1", "desc")),
@@ -79,7 +83,8 @@ public class StartUITest {
         };
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"4", items[0].getId(), "y"}));
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.select(Integer.valueOf(input.askUser("select:")));
         Assert.assertThat(tracker.findById(items[0].getId()), is(items[0]));
     }
@@ -94,7 +99,8 @@ public class StartUITest {
         };
         ValidateInput input = new ValidateInput(new StubInput(new String[]{"5", items[0].getName(), "y"}));
         MenuTracker menu = new MenuTracker(input, tracker);
-        menu.fillActions();
+        StartUI ui = new StartUI(input, tracker);
+        menu.fillActions(ui);
         menu.select(Integer.valueOf(input.askUser("select:")));
         Assert.assertThat(tracker.findByName(items[0].getName()), is(items));
     }
