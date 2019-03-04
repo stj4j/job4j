@@ -17,8 +17,19 @@ public class ValidateInput implements Input {
         return this.input.askUser(question);
     }
 
+
     public int askUser(String askMessage, List<Integer> range) {
-         return this.input.askUser(askMessage, range);
+        boolean invalid = true;
+        int value = -1;
+        do {
+            try {
+                value = this.input.askUser(askMessage, range);
+                invalid = false;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Please enter validate data again.");
+            }
+        } while (invalid);
+        return  value;
     }
 
     @Override

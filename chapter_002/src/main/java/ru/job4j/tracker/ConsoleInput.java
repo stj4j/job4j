@@ -16,17 +16,11 @@ public class ConsoleInput implements Input {
         int input = -1;
         boolean invalid = false;
         do {
-            invalid = false;
-            try {
                 input = Integer.valueOf(this.askUser(question));
                 if (!this.checkValue(range, input)) {
                     System.out.println("Please select key from menu.");
                     invalid = true;
                 }
-            } catch (NumberFormatException nfe) {
-                System.out.println("Please enter validate data again.");
-                invalid = true;
-            }
         } while (invalid);
         return  input;
     }
