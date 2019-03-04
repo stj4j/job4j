@@ -11,6 +11,5 @@ public class ExitProgram extends BaseAction {
     @Override
     public void execute(Input input, Tracker tracker) {
         this.ui.setMenuLoop(false);
-        return;
     }
 }

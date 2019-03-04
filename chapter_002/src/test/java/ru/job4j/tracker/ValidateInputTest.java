@@ -51,4 +51,42 @@ public class ValidateInputTest {
                         )
                 );
     }
+
+    @Test
+    public void showItemWithBadId() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"4", "fghfghfghfg", "6"})
+        );
+        Tracker tracker = new Tracker();
+        StartUI start = new StartUI(input, tracker);
+        start.init();
+
+        assertThat(
+                this.mem.toString(),
+                is(
+                        //String.format("Please enter validate data again.")
+                        new StringBuilder()
+                                .append("0. Add new Item." + System.lineSeparator())
+                                .append("1. Show all items." + System.lineSeparator())
+                                .append("2. Update item." + System.lineSeparator())
+                                .append("3. Delete item." + System.lineSeparator())
+                                .append("4. Find item by id." + System.lineSeparator())
+                                .append("5. Find item by name." + System.lineSeparator())
+                                .append("6. Exit." + System.lineSeparator())
+                                .append("--------------------" + System.lineSeparator())
+                                .append("----------" + System.lineSeparator())
+                                .append("| No record for this ID." + System.lineSeparator())
+                                .append("----------" + System.lineSeparator())
+                                .append("0. Add new Item." + System.lineSeparator())
+                                .append("1. Show all items." + System.lineSeparator())
+                                .append("2. Update item." + System.lineSeparator())
+                                .append("3. Delete item." + System.lineSeparator())
+                                .append("4. Find item by id." + System.lineSeparator())
+                                .append("5. Find item by name." + System.lineSeparator())
+                                .append("6. Exit.")
+                                .append(System.lineSeparator())
+                                .toString()
+                )
+        );
+    }
 }

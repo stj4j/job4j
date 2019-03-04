@@ -25,7 +25,7 @@ public class StartUI {
 
     public void init() {
 
-      try {
+      //try {
             MenuTracker menu = new MenuTracker(this.input, this.tracker);
             menu.fillActions(this);
             for (int i = 0; i < menu.getActionsLentgh(); i++) {
@@ -33,11 +33,11 @@ public class StartUI {
             }
             do {
                 menu.show();
-                menu.select(Integer.valueOf(input.askUser("select:", range)));
+                menu.select(input.askUser("select:", range));
             } while (this.menuLoop);
-       } catch (Throwable e) {
-            throw new MenuOutException("Error - ", e);
-       }
+       //} catch (Throwable e) {
+       //     throw new MenuOutException("Error - ", e);
+       //}
     }
 
     public static void main(String[] args) {
