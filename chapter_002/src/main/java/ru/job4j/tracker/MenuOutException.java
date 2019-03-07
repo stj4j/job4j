@@ -3,13 +3,12 @@ package ru.job4j.tracker;
 /**
  * Created by Sergii.
  */
-public class MenuOutException extends RuntimeException {
+public class MenuOutException extends Exception {
 
-    public MenuOutException(String message, Exception e) {
-        super(message, e);
-        //System.out.println(message + e.getMessage());
-        //System.exit(1);
-        }
+    public MenuOutException(String message) {
+        System.out.println(message);
+    }
+
 }
 
 
