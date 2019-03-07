@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class UserConvertTest {
     @Test
-    public void process(){
+    public void process() {
     UserConvert userConert = new UserConvert();
     List<User> inputData = new LinkedList<>();
     HashMap<Integer, User> expec = new HashMap<>();
