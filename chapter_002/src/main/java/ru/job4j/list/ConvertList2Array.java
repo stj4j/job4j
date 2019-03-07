@@ -26,13 +26,13 @@ public class ConvertList2Array {
         }
         return array;
     }
-    public List<Integer> convert (List<int[]> list){
+    public List<Integer> convert(List<int[]> list) {
         List<Integer> result = new LinkedList<>();
         int arraySize;
 
         for (int i = 0; i < list.size(); i++) {
             arraySize = list.get(i).length;
-            for (int j = 0; j < arraySize; j++ ) {
+            for (int j = 0; j < arraySize; j++) {
                 result.add(list.get(i)[j]);
             }
         }

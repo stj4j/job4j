@@ -14,7 +14,7 @@ import static org.junit.Assert.assertThat;
  */
 public class ConvertList2ArrayTest {
     @Test
-    public void convert(){
+    public void convert() {
         ConvertList2Array convertList = new ConvertList2Array();
         List<int[]> data = new LinkedList<>();
         data.add(new int[]{1, 2});
