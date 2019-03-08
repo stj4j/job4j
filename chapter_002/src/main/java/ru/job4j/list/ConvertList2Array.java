@@ -30,10 +30,9 @@ public class ConvertList2Array {
         List<Integer> result = new LinkedList<>();
         int arraySize;
 
-        for (int i = 0; i < list.size(); i++) {
-            arraySize = list.get(i).length;
-            for (int j = 0; j < arraySize; j++) {
-                result.add(list.get(i)[j]);
+        for (int itemsArray[] : list) {
+            for (int item : itemsArray) {
+                result.add(item);
             }
         }
     return result;
