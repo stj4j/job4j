@@ -27,7 +27,8 @@ public class ConvertList2Array {
         List<Integer> result = new LinkedList<>();
         int arraySize;
 
-        for (int itemsArray[] : list) {
+
+        for (int[] itemsArray : list) {
             for (int item : itemsArray) {
                 result.add(item);
             }
