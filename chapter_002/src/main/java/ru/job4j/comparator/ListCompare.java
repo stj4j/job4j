@@ -19,7 +19,7 @@ public class ListCompare implements Comparator<String> {
         char[] second = o2.toCharArray();
         int rezult = 0;
 
-        for (int i = 0; i < minArrayLenght(first.length, second.length) - 1; i++) {
+        for (int i = 0; i < minArrayLenght(first.length, second.length); i++) {
             if ((int) first[i] > (int) second[i]) {
                 rezult = 1;
                 break;
@@ -38,6 +38,6 @@ public class ListCompare implements Comparator<String> {
     }
 
     private int minArrayLenght(int f, int s) {
-        return f > s ? f : s;
+        return f > s ? s : f;
     }
 }
