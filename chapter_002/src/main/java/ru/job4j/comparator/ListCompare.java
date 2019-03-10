@@ -17,8 +17,8 @@ public class ListCompare implements Comparator<String> {
         int rezult = 0;
 
         for (int i = 0; i < minArrayLenght(first.length, second.length); i++) {
-           if (Character.compare(first[i],second[i]) != 0) {
-                rezult =  Character.compare(first[i],second[i]);
+           if (Character.compare(first[i], second[i]) != 0) {
+                rezult =  Character.compare(first[i], second[i]);
                 break;
             }
         }
