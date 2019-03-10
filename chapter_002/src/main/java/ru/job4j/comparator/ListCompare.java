@@ -7,9 +7,6 @@ import java.util.Comparator;
  */
 public class ListCompare implements Comparator<String> {
 
-    // ascii A-Z 65-90
-    // ascii a-z 97-122
-
     @Override
     public int compare(String o1, String o2) {
 
@@ -20,12 +17,8 @@ public class ListCompare implements Comparator<String> {
         int rezult = 0;
 
         for (int i = 0; i < minArrayLenght(first.length, second.length); i++) {
-            if ((int) first[i] > (int) second[i]) {
-                rezult = 1;
-                break;
-            }
-            if ((int) first[i] < (int) second[i]) {
-                rezult = -1;
+           if (Character.compare(first[i],second[i]) != 0) {
+                rezult =  Character.compare(first[i],second[i]);
                 break;
             }
         }
