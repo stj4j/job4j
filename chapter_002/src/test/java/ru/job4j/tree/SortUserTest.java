@@ -30,7 +30,7 @@ public class SortUserTest {
             expect += Integer.toString(item.getAge());
         }
         System.out.println(expect);
-        assertTrue(expect.equals("192121233444"));
+        assertTrue(expect.equals("1921233444"));
     }
 
     @Test
