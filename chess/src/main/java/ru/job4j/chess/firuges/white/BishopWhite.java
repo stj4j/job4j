@@ -23,7 +23,13 @@ public class BishopWhite implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        return new Cell[] {dest};
+        Cell[] steps = new Cell[0];
+        if (Math.abs(dest.x - source.x) == Math.abs(dest.y - source.y)) {
+            steps = new Cell[] {dest};
+        } else {
+            steps = new Cell[] {source};
+        }
+        return steps;
     }
 
     @Override

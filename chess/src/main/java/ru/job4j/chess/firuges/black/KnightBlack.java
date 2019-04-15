@@ -23,7 +23,11 @@ public class KnightBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        return new Cell[] {dest};
+        Cell[] steps = new Cell[0];
+        if (Math.abs(source.y - dest.y) + Math.abs(source.x - dest.x) == 3) {
+            steps = new Cell[] {dest};
+        }
+        return steps;
     }
 
     @Override

@@ -23,7 +23,12 @@ public class QeenBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        return new Cell[] {dest};
+        Cell[] steps = new Cell[0];
+        if (Math.abs(dest.x - source.x) == Math.abs(dest.y - source.y)
+                || ((dest.y == source.y || dest.x == source.x))) {
+            steps = new Cell[] {dest};
+        }
+        return steps;
     }
 
     @Override
