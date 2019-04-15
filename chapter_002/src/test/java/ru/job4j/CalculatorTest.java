@@ -24,7 +24,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void whenAdd1Until3_Old() {
+    public void whenAdd1Until3Old() {
         Calculator calc = new Calculator();
         List<Double> buffer = new ArrayList<>();
         calc.multiple(
